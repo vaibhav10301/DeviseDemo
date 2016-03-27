@@ -1,0 +1,32 @@
+<h1>Create New home</h1>
+
+<%=  form_for @home do |f| %>
+
+<% if @home.errors.any? %>
+  <div id="error">
+    <h2>
+      <%= pluralize(@home.errors.count, "error") %>   home cannot be added to Inventory
+    </h2>
+    <ul>
+      <% @home.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+
+	<p>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+   </p>
+	<p>
+	<%= f.label :address %>
+	<%= f.text_field :address %>
+   </p>
+<p>
+<%= f.submit %>
+</p>
+
+<% end %>
